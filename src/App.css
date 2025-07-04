@@ -322,7 +322,7 @@ main {
   background: linear-gradient(90deg, #00ffea, #00ff6a, #ffe600, #ff00c8, #00ffea 100%);
   background-size: 300% 100%;
   color: #181f2a;
-  border: none;
+  border: 2.5px solid #00ffea;
   border-radius: 10px;
   padding: 0.55rem 1.25rem;
   font-size: 0.98rem;
@@ -333,6 +333,29 @@ main {
   transition: background 0.25s, color 0.18s, box-shadow 0.22s, transform 0.15s;
   z-index: 1;
   margin-top: 0.7rem;
+}
+
+/* Tambahan agar tombol RGB tetap mencolok di dark mode */
+[data-theme="dark"] .futuristic-btn {
+  background: linear-gradient(90deg, #00ffea, #00ff6a, #ffe600, #ff00c8, #00ffea 100%);
+  background-size: 300% 100%;
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(0,255,234,0.25), 0 2px 8px 0 rgba(0,0,0,0.25), 0 1px 4px 0 rgba(255,255,255,0.18);
+  border: 2px solid var(--color-green-soft);
+}
+[data-theme="dark"] .futuristic-btn:hover, [data-theme="dark"] .futuristic-btn:focus {
+  background-position: 100% 0;
+  color: #181f2a;
+  box-shadow: 0 8px 32px 0 rgba(0,255,234,0.32), 0 3px 12px 0 rgba(0,0,0,0.22), 0 1.5px 5px 0 rgba(255,255,255,0.22);
+  filter: brightness(1.08);
+}
+[data-theme="dark"] .futuristic-btn .futuristic-btn-text {
+  color: #fff;
+  text-shadow: 0 0 8px #00ffea, 0 0 4px #ffe600;
+}
+[data-theme="dark"] .futuristic-btn .stripe {
+  opacity: 0.95;
+  background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.25) 100%);
 }
 .profile-btn-container {
   display: flex;
