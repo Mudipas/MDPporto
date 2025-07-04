@@ -1,38 +1,482 @@
-.App {
-  text-align: center;
+/* Logo classic ⌞MDP⌝ style */
+.custom-logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-yellow);
+  user-select: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo-bracket {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 0 0.18em;
+  transition: color 0.2s;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo-bracket.left {
+  margin-right: 0.12em;
+}
+.logo-bracket.right {
+  margin-left: 0.12em;
+}
+.logo-text {
+  color: var(--color-yellow);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0.1em;
+  font-family: 'Times New Roman', Times, serif;
+}
+@media (max-width: 600px) {
+  .custom-logo {
+    font-size: 1.1rem;
+  }
+  .logo-bracket {
+    font-size: 1.4rem;
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .custom-logo {
+    font-size: 1.1rem;
+  }
+  .logo-bracket {
+    font-size: 1.4rem;
+    top: 0.12em;
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .custom-logo {
+    font-size: 1.1rem;
+  }
+  .logo-bracket {
+    font-size: 1.4rem;
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .custom-logo {
+    font-size: 1.1rem;
+  }
+  .logo-bracket {
+    font-size: 1.4rem;
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+/* Green border for active card only, hidden by default */
+[data-theme="dark"] .custom-card {
+  border: none !important;
+  box-shadow: var(--shadow-main) !important;
+  filter: none !important;
+  background: var(--color-gray) !important;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s, filter 0.2s;
+}
+[data-theme="dark"] .profile-active-border {
+  border: 2.5px solid var(--color-green-soft) !important;
+  box-shadow:
+    0 0 0 1px var(--color-green-soft),
+    0 0 6px 1px var(--color-green-glow),
+    0 0 12px 2px var(--color-green-soft-dark) !important;
+  filter: drop-shadow(0 0 4px var(--color-green-soft));
+  background: rgba(59,232,138,0.07) !important;
+}
+/* Green Glow for Profile & Contact in Dark Mode */
+[data-theme="dark"] .navbar-link-green-glow {
+  color: var(--color-yellow) !important;
+  border-radius: 8px;
+  border: 2px solid var(--color-green-soft);
+  transition: color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+[data-theme="dark"] .navbar-link-green-glow:hover,
+[data-theme="dark"] .navbar-link-green-glow:focus {
+  background: rgba(59,232,138,0.10);
+  color: var(--color-yellow) !important;
+  border: 2px solid var(--color-green-soft);
+  box-shadow:
+    0 0 0 1px var(--color-green-soft),
+    0 0 4px 1px var(--color-green-glow),
+    0 0 8px 1.5px var(--color-green-soft-dark);
+  filter: drop-shadow(0 0 4px var(--color-green-soft));
+  animation: none;
+}
+@keyframes border-rotate {
+  0% {
+    box-shadow:
+      0 0 0 1px #fff,
+      0 0 4px 1px #4fc3f7,
+      0 0 8px 1.5px #fff;
+    filter: brightness(1.08);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px #4fc3f7,
+      0 0 4px 1px #fff,
+      0 0 8px 1.5px #4fc3f7;
+    filter: brightness(1.12);
   }
 }
 
-.App-header {
-  background-color: #282c34;
+
+/* Aktifkan efek border animasi hanya pada dark mode */
+
+[data-theme="dark"] .navbar-menu li a {
+  transition: color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+[data-theme="dark"] .navbar-menu li a:hover,
+[data-theme="dark"] .navbar-menu li a:focus {
+  position: relative;
+  z-index: 2;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  box-shadow:
+    0 0 0 1px #4fc3f7,
+    0 0 4px 1px #fff,
+    0 0 8px 1.5px #4fc3f7;
+  animation: border-rotate 1.2s linear infinite;
+  background: var(--color-gold);
+  color: #181f2a !important;
+  filter: drop-shadow(0 0 6px #4fc3f7) brightness(1.2);
+}
+
+
+[data-theme="dark"] .nav-active {
+  border: 2px solid #fff;
+  box-shadow:
+    0 0 0 2px #4fc3f7,
+    0 0 8px 2px #fff,
+    0 0 16px 4px #4fc3f7;
+  animation: border-rotate 1.2s linear infinite;
+  background: rgba(79,195,247,0.12);
+  color: #181f2a !important;
+  filter: drop-shadow(0 0 6px #4fc3f7) brightness(1.2);
+}
+[data-theme="dark"] .custom-card {
+  border: none;
+}
+[data-theme="dark"] .custom-card:hover,
+[data-theme="dark"] .custom-card:focus {
+  border: 2px solid var(--color-gold) !important;
+}
+[data-theme="dark"] .navbar-logo,
+[data-theme="dark"] .navbar-menu li a {
+  color: var(--color-yellow) !important;
+  transition: color 0.2s;
+}
+[data-theme="dark"] .navbar-menu li a:hover,
+[data-theme="dark"] .navbar-menu li a:focus {
+  color: #181f2a !important;
+}
+@import './AppColors.css';
+
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-light-blue);
+  color: var(--color-dark-blue);
+  margin: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+
+[data-theme="dark"] .custom-card,
+[data-theme="dark"] .custom-card * {
+  background: var(--color-gray) !important;
+  color: var(--color-white) !important;
+  transition: color 0.2s, background 0.2s;
+}
+
+[data-theme="dark"] .custom-card:hover,
+[data-theme="dark"] .custom-card:focus {
+  background: var(--color-gray) !important;
+}
+[data-theme="dark"] .custom-card:hover *,
+[data-theme="dark"] .custom-card:focus * {
+  color: var(--color-yellow) !important;
+}
+[data-theme="dark"] body {
+  background: var(--color-dark-blue);
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  background: var(--color-white);
+  transition: background 0.3s, color 0.3s;
+}
+
+[data-theme="dark"] main {
+  background: #181f2a;
+  color: var(--color-white);
+}
+
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  background: var(--color-white);
+  transition: background 0.3s;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  background: var(--color-dark-blue);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow-main);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: none;
+}
+
+[data-theme="dark"] .navbar {
+  border-bottom: 2px solid var(--color-gold);
+}
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  margin-right: 2rem;
+}
+.navbar-menu {
+  flex: 1;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.theme-toggle {
+  margin-left: 2rem;
+}
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu li a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+}
+.navbar-menu li a:hover, .navbar-menu li a.active {
+  color: var(--color-dark-blue);
+  background: var(--color-gold);
+}
+.theme-toggle {
+  background: var(--color-yellow);
+  color: var(--color-dark-blue);
+  border: none;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-main);
+  transition: background 0.2s, color 0.2s;
+}
+.theme-toggle:hover {
+  background: var(--color-orange);
+  color: var(--color-white);
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* Button Styles */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Futuristic RGB Button with moving white stripes */
+/* Futuristic RGB Button with moving white stripes and text color change on stripe hover */
+/* Futuristic RGB Button with moving white stripes and text color change on stripe hover */
+.futuristic-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #00ffea, #00ff6a, #ffe600, #ff00c8, #00ffea 100%);
+  background-size: 300% 100%;
+  color: #181f2a;
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2.5px 10px 0 rgba(0,255,234,0.13), 0 1px 4px 0 rgba(0,0,0,0.13), 0 0.5px 1.5px 0 rgba(255,255,255,0.10);
+  cursor: pointer;
+  transition: background 0.25s, color 0.18s, box-shadow 0.22s, transform 0.15s;
+  z-index: 1;
+  margin-top: 0.7rem;
+}
+.profile-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 1.2rem;
+}
+@media (max-width: 600px) {
+  .profile-btn-container {
+    justify-content: center;
+    margin-top: 1.1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .futuristic-btn {
+    font-size: 0.93rem;
+    padding: 0.5rem 1.1rem;
+  }
+}
+.futuristic-btn .futuristic-btn-text {
+  position: relative;
+  z-index: 3;
+  transition: color 0.18s;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 500;
+  /* Will be animated to black when stripe passes */
+}
+.futuristic-btn .moving-stripes {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+.futuristic-btn .stripe {
+  flex: 1 1 0;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.18) 100%);
+  width: 8px;
+  margin: 0 2px;
+  border-radius: 2px;
+  opacity: 0.85;
+  animation: move-stripes 1.6s linear infinite;
+  /* Add a filter to create a mask for text color change */
+  mix-blend-mode: lighten;
+}
+.futuristic-btn .stripe:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.futuristic-btn .stripe:nth-child(3) {
+  animation-delay: 1s;
+}
+/* Text color to black when stripe passes (simulate with pseudo-element and mask) */
+.futuristic-btn .futuristic-btn-text {
+  background: none;
+}
+.futuristic-btn .moving-stripes {
+  pointer-events: none;
+}
+.futuristic-btn .futuristic-btn-text {
+  /* Use a shadow to create a subtle black effect when stripe passes */
+  text-shadow:
+    0 0 0 #000,
+    0 0 0 #000,
+    0 0 0 #000;
+}
+.futuristic-btn .stripe {
+  /* Animate a mask over the text using mix-blend-mode and z-index layering */
+  pointer-events: none;
+}
+@media (pointer: fine) {
+  .futuristic-btn .stripe {
+    /* On desktop, stripes are more visible */
+    opacity: 0.95;
+  }
+}
+.futuristic-btn:hover, .futuristic-btn:focus {
+  background-position: 100% 0;
+  color: #fff;
+  box-shadow: 0 6px 24px 0 rgba(0,255,234,0.19), 0 2.5px 12px 0 rgba(0,0,0,0.18), 0 1px 3px 0 rgba(255,255,255,0.13);
+  transform: translateY(-2px) scale(1.045);
+}
+.futuristic-btn:active {
+  filter: brightness(0.98);
+}
+.futuristic-btn .moving-stripes {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+.futuristic-btn .stripe {
+  flex: 1 1 0;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.18) 100%);
+  width: 8px;
+  margin: 0 2px;
+  border-radius: 2px;
+  opacity: 0.85;
+  animation: move-stripes 1.6s linear infinite;
+}
+.futuristic-btn .stripe:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.futuristic-btn .stripe:nth-child(3) {
+  animation-delay: 1s;
+}
+@keyframes move-stripes {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* Card Styles */
+.custom-card {
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  padding: 2rem 1.5rem;
+  margin: 1.5rem 0;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.custom-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 3px 12px rgba(0,0,0,0.14);
+  background: var(--color-golden-yellow);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .navbar-menu {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  main {
+    padding: 1rem 0.3rem;
   }
 }
