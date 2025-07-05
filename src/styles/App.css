@@ -305,6 +305,12 @@ main {
   cursor: pointer;
   box-shadow: var(--shadow-main);
   transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  top: -2px;
 }
 .theme-toggle:hover {
   background: var(--color-orange);

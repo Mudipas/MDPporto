@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import '../styles/App.css';
 
 const ProfileSection = ({ isActive }) => (
   <section id="profile" style={{ scrollMarginTop: '90px' }}>
