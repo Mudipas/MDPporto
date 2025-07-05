@@ -180,7 +180,15 @@
 }
 @import './AppColors.css';
 @import './ProfileImage.css';
+@import url('./fonts.css');
 
+:root {
+  --font-main: 'Georama', Arial, Helvetica, sans-serif;
+}
+
+body, html, .text-profile, .profile-greeting, .profile-name, .profile-description, .profile-stats, .stat-item, .stat-number, .stat-label, .key-competencies, .key-competencies h3, .key-competencies li, .profile-title, .greeting-transition, .title-transition, .description-transition {
+  font-family: var(--font-main) !important;
+}
 
 body {
   font-family: var(--font-main);
