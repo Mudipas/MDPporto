@@ -179,6 +179,7 @@
   color: #181f2a !important;
 }
 @import './AppColors.css';
+@import './ProfileImage.css';
 
 
 body {
@@ -507,5 +508,47 @@ main {
   }
   main {
     padding: 1rem 0.3rem;
+  }
+}
+
+/* Profile Content Layout */
+.profile-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.profile-left {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Responsive adjustments for profile layout */
+@media (max-width: 768px) {
+  .profile-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .profile-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-content {
+    gap: 1.5rem;
   }
 }
