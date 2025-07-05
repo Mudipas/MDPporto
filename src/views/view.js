@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileSection from '../components/ProfileSection';
+import ProfileSection from '../components/profilesections/ProfileSection';
 import EducationSection from '../components/EducationSection';
 import ExperienceSection from '../components/ExperienceSection';
 import PortfolioSection from '../components/PortfolioSection';
