@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import '../styles/App.css';
 
 const dummyBlogs = [
   { title: 'Tips Belajar React untuk Pemula', date: '2025-06-01', desc: 'Panduan singkat dan tips belajar React JS dari nol.' },

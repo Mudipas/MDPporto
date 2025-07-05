@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import '../styles/App.css';
 
 const dummyProjects = [
   { title: 'Personal Website', desc: 'Portfolio website built with React, CSS, and modern design.' },

@@ -1,0 +1,79 @@
+.gear-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gear-svg-wrapper {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gear-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: gear-rotate 60s linear infinite; /* 60 detik per putaran (≈ 0.017 Hz) - sangat lambat */
+  display: block;
+}
+
+/* Atur warna garis (stroke) gear berdasarkan tema */
+.gear-svg circle,
+.gear-svg rect {
+  stroke: var(--color-yellow); /* Warna default untuk light mode */
+  transition: stroke 0.3s ease;
+}
+
+[data-theme="dark"] .gear-svg circle,
+[data-theme="dark"] .gear-svg rect {
+  stroke: var(--color-gold); /* Warna untuk dark mode */
+}
+
+@keyframes gear-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animasi baru untuk ikon matahari (berlawanan arah jarum jam) */
+@keyframes sun-rotate-reverse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+.gear-center-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25rem;
+  z-index: 2;
+  pointer-events: none;
+  color: #181f2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sun-icon-rotate {
+  animation: sun-rotate-reverse 120s linear infinite; /* 120 detik per putaran - sangat lambat */
+}
+[data-theme="dark"] .gear-center-icon {
+  color: #ffe600;
+}
