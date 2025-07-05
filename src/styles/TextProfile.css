@@ -35,7 +35,7 @@
 }
 
 .greeting-transition {
-  color: var(--color-gold);
+  color: #1e3a8a; /* Blue-800 for light mode */
   font-weight: 700;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .title-transition {
-  color: var(--color-gold);
+  color: #1e3a8a; /* Blue-800 for light mode */
   font-weight: 600;
 }
 
@@ -62,8 +62,53 @@
 .profile-description p {
   font-size: 1.1rem;
   color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.key-competencies {
+  margin: 1.5rem 0;
+}
+
+.key-competencies h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3a8a; /* Blue color for light mode */
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-main);
+}
+
+.key-competencies ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  min-height: 1.5rem;
+}
+
+.key-competencies li {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.key-competencies li::before {
+  content: "•";
+  color: #1e3a8a; /* Blue bullet for light mode */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Dark mode for key competencies */
+[data-theme="dark"] .key-competencies h3 {
+  color: var(--color-green-soft);
+}
+
+[data-theme="dark"] .key-competencies li::before {
+  color: var(--color-green-soft);
 }
 
 .description-transition {
@@ -88,7 +133,7 @@
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-yellow);
+  color: #1e3a8a; /* Blue-800 for light mode */
   line-height: 1;
   margin-bottom: 0.25rem;
 }
@@ -109,6 +154,10 @@
   color: var(--color-green-soft);
 }
 
+[data-theme="dark"] .title-transition {
+  color: var(--color-green-soft);
+}
+
 [data-theme="dark"] .stat-number {
   color: var(--color-green-soft);
 }
@@ -116,15 +165,23 @@
 /* Text transition animation */
 .text-transition {
   display: inline-block;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
-.text-transition.visible {
-  opacity: 1;
+/* Typing cursor animation */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
-.text-transition.hidden {
-  opacity: 0;
+.typing-cursor {
+  display: inline-block;
+  font-weight: normal;
+  animation: blink 1s infinite;
 }
 
 /* Responsive adjustments */

@@ -13,19 +13,17 @@ const ProfileSection = ({ isActive }) => (
         </div>
         <div className="profile-right">
           <TextProfile />
+          <div className="profile-btn-container">
+            <button className="futuristic-btn">
+              <span className="moving-stripes">
+                <span className="stripe"></span>
+                <span className="stripe"></span>
+                <span className="stripe"></span>
+              </span>
+              <span className="futuristic-btn-text">Download CV</span>
+            </button>
+          </div>
         </div>
-      </div>
-      <h2>Profil</h2>
-      <p>Saya merupakan fresh graduate dari Universitas Islam Indonesia, lulus pada tahun 2023. Saya memiliki pengetahuan dan kemampuan dalam bidang IT, software komputer, serta berbagai tools terkait. Saya juga mampu bekerja dalam tim dan komunikasi yang efektif untuk mengelola proyek.</p>
-      <div className="profile-btn-container">
-        <button className="futuristic-btn">
-          <span className="moving-stripes">
-            <span className="stripe"></span>
-            <span className="stripe"></span>
-            <span className="stripe"></span>
-          </span>
-          <span className="futuristic-btn-text">Download CV</span>
-        </button>
       </div>
     </Card>
   </section>

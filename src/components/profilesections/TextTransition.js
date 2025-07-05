@@ -1,37 +1,72 @@
 import React, { useState, useEffect } from 'react';
 
-const TextTransition = ({ texts, interval = 2000, className = '' }) => {
+const TextTransition = ({ texts, typingSpeed = 100, pauseDuration = 1000, className = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    if (texts.length <= 1) return;
-
-    const timer = setInterval(() => {
-      setIsVisible(false);
-      
-      setTimeout(() => {
+    if (!texts || texts.length === 0) return;
+    
+    const currentText = texts[currentIndex];
+    
+    if (isTyping) {
+      // Typing phase - add one character at a time
+      if (charIndex < currentText.length) {
+        const timer = setTimeout(() => {
+          setDisplayedText(currentText.substring(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, typingSpeed);
+        
+        return () => clearTimeout(timer);
+      } else {
+        // Finished typing, wait for pause duration
+        const timer = setTimeout(() => {
+          setIsTyping(false);
+          setDisplayedText('');
+          setCharIndex(0);
+        }, pauseDuration);
+        
+        return () => clearTimeout(timer);
+      }
+    } else {
+      // Move to next text after clearing
+      const timer = setTimeout(() => {
         setCurrentIndex((prevIndex) => 
           prevIndex === texts.length - 1 ? 0 : prevIndex + 1
         );
-        setIsVisible(true);
-      }, 150); // Half of transition duration
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [texts, interval]);
+        setIsTyping(true);
+      }, 200); // Small delay before starting next text
+      
+      return () => clearTimeout(timer);
+    }
+  }, [texts, currentIndex, charIndex, isTyping, typingSpeed, pauseDuration]);
 
   if (!texts || texts.length === 0) return null;
 
   return (
     <span 
-      className={`text-transition ${className} ${isVisible ? 'visible' : 'hidden'}`}
+      className={`text-transition ${className}`}
       style={{
-        opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.3s ease-in-out'
+        opacity: displayedText ? 1 : 0,
+        transition: 'opacity 0.2s ease-in-out',
+        minHeight: '1em',
+        display: 'inline-block'
       }}
     >
-      {texts[currentIndex]}
+      {displayedText}
+      {isTyping && displayedText && (
+        <span 
+          className="typing-cursor"
+          style={{
+            animation: 'blink 1s infinite',
+            marginLeft: '2px'
+          }}
+        >
+          |
+        </span>
+      )}
     </span>
   );
 };
