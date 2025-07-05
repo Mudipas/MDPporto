@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import '../styles/App.css';
 
 const SkillsSection = ({ isActive }) => (
   <section id="skills" style={{ scrollMarginTop: '90px' }}>

@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 
+import '../styles/App.css';
+import GearButton from './GearButton';
+
 const scrollToSection = (e, id) => {
   e.preventDefault();
   const el = document.getElementById(id);
@@ -46,9 +49,11 @@ const Navbar = ({ setActiveSection }) => {
           </li>
         ))}
       </ul>
-      <button className="theme-toggle" aria-label="Toggle dark/light mode" onClick={toggleTheme}>
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </button>
+      <GearButton
+        onClick={toggleTheme}
+        ariaLabel="Toggle dark/light mode"
+        icon={theme === 'dark' ? '☀️' : '🌙'}
+      />
     </nav>
   );
 };
