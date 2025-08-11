@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 
+import '../styles/App.css';
+import GearButton from './GearButton';
+
 const scrollToSection = (e, id) => {
   e.preventDefault();
   const el = document.getElementById(id);
@@ -10,12 +13,12 @@ const scrollToSection = (e, id) => {
 };
 
 const navItems = [
-  { id: 'profile', label: 'Profile' },
-  { id: 'education', label: 'Education' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'blog', label: 'Blog' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'profile', label: 'Profil' },
+  { id: 'education', label: 'Pendidikan' },
+  { id: 'experience', label: 'Pengalaman' },
+  { id: 'portfolio', label: 'Portofolio' },
+  // Blog disembunyikan sesuai permintaan
+  { id: 'contact', label: 'Kontak' },
 ];
 
 const Navbar = ({ setActiveSection }) => {
@@ -46,9 +49,11 @@ const Navbar = ({ setActiveSection }) => {
           </li>
         ))}
       </ul>
-      <button className="theme-toggle" aria-label="Toggle dark/light mode" onClick={toggleTheme}>
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </button>
+      <GearButton
+        onClick={toggleTheme}
+        ariaLabel="Ubah tema gelap/terang"
+        icon={theme === 'dark' ? '☀️' : '🌙'}
+      />
     </nav>
   );
 };

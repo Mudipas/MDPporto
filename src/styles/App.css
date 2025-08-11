@@ -179,7 +179,16 @@
   color: #181f2a !important;
 }
 @import './AppColors.css';
+@import './ProfileImage.css';
+@import url('./fonts.css');
 
+:root {
+  --font-main: 'Georama', Arial, Helvetica, sans-serif;
+}
+
+body, html, .text-profile, .profile-greeting, .profile-name, .profile-description, .profile-stats, .stat-item, .stat-number, .stat-label, .key-competencies, .key-competencies h3, .key-competencies li, .profile-title, .greeting-transition, .title-transition, .description-transition {
+  font-family: var(--font-main) !important;
+}
 
 body {
   font-family: var(--font-main);
@@ -305,6 +314,12 @@ main {
   cursor: pointer;
   box-shadow: var(--shadow-main);
   transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  top: -2px;
 }
 .theme-toggle:hover {
   background: var(--color-orange);
@@ -322,7 +337,7 @@ main {
   background: linear-gradient(90deg, #00ffea, #00ff6a, #ffe600, #ff00c8, #00ffea 100%);
   background-size: 300% 100%;
   color: #181f2a;
-  border: none;
+  border: 2.5px solid #00ffea;
   border-radius: 10px;
   padding: 0.55rem 1.25rem;
   font-size: 0.98rem;
@@ -333,6 +348,29 @@ main {
   transition: background 0.25s, color 0.18s, box-shadow 0.22s, transform 0.15s;
   z-index: 1;
   margin-top: 0.7rem;
+}
+
+/* Tambahan agar tombol RGB tetap mencolok di dark mode */
+[data-theme="dark"] .futuristic-btn {
+  background: linear-gradient(90deg, #00ffea, #00ff6a, #ffe600, #ff00c8, #00ffea 100%);
+  background-size: 300% 100%;
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(0,255,234,0.25), 0 2px 8px 0 rgba(0,0,0,0.25), 0 1px 4px 0 rgba(255,255,255,0.18);
+  border: 2px solid var(--color-green-soft);
+}
+[data-theme="dark"] .futuristic-btn:hover, [data-theme="dark"] .futuristic-btn:focus {
+  background-position: 100% 0;
+  color: #181f2a;
+  box-shadow: 0 8px 32px 0 rgba(0,255,234,0.32), 0 3px 12px 0 rgba(0,0,0,0.22), 0 1.5px 5px 0 rgba(255,255,255,0.22);
+  filter: brightness(1.08);
+}
+[data-theme="dark"] .futuristic-btn .futuristic-btn-text {
+  color: #fff;
+  text-shadow: 0 0 8px #00ffea, 0 0 4px #ffe600;
+}
+[data-theme="dark"] .futuristic-btn .stripe {
+  opacity: 0.95;
+  background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.25) 100%);
 }
 .profile-btn-container {
   display: flex;
@@ -478,5 +516,49 @@ main {
   }
   main {
     padding: 1rem 0.3rem;
+  }
+}
+
+/* Profile Content Layout */
+.profile-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.profile-left {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Responsive adjustments for profile layout */
+@media (max-width: 768px) {
+  .profile-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .profile-right {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-content {
+    gap: 1.5rem;
   }
 }

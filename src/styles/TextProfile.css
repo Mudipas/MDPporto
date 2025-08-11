@@ -1,0 +1,238 @@
+/* Text Profile Styles */
+.text-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-family: var(--font-main);
+}
+
+.profile-greeting {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-family: var(--font-main);
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.greeting-transition {
+  color: #1e3a8a; /* Blue-800 for light mode */
+  font-weight: 700;
+}
+
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-yellow);
+  margin: 0;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.title-transition {
+  color: #1e3a8a; /* Blue-800 for light mode */
+  font-weight: 600;
+}
+
+.profile-description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.profile-description p {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.key-competencies {
+  margin: 1.5rem 0;
+}
+
+.key-competencies h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3a8a; /* Blue color for light mode */
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-main);
+}
+
+.key-competencies ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.key-competencies li {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.key-competencies li::before {
+  content: "•";
+  color: #1e3a8a; /* Blue bullet for light mode */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Dark mode for key competencies */
+[data-theme="dark"] .key-competencies h3 {
+  color: var(--color-green-soft);
+}
+
+[data-theme="dark"] .key-competencies li::before {
+  color: var(--color-green-soft);
+}
+
+.description-transition {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Profile Stats */
+.profile-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a; /* Blue-800 for light mode */
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .profile-name {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .greeting-transition {
+  color: var(--color-green-soft);
+}
+
+[data-theme="dark"] .title-transition {
+  color: var(--color-green-soft);
+}
+
+[data-theme="dark"] .stat-number {
+  color: var(--color-green-soft);
+}
+
+/* Text transition animation */
+.text-transition {
+  display: inline-block;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  display: inline-block;
+  font-weight: normal;
+  animation: blink 1s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-profile {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+  }
+  
+  .profile-title {
+    font-size: 1.3rem;
+    justify-content: center;
+  }
+  
+  .profile-stats {
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-name {
+    font-size: 1.8rem;
+  }
+  
+  .profile-title {
+    font-size: 1.1rem;
+  }
+  
+  .profile-description p {
+    font-size: 1rem;
+  }
+  
+  .profile-stats {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    min-width: 80px;
+  }
+}
