@@ -12,11 +12,17 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "http-server": "^14.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "start:quiet": "cross-env NODE_OPTIONS=--no-deprecation BROWSER=none PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "preview": "http-server ./build -p 5000 -c-1"
   },
   "eslintConfig": {
     "extends": [
