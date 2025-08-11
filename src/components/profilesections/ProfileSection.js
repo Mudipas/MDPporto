@@ -14,14 +14,19 @@ const ProfileSection = ({ isActive }) => (
         <div className="profile-right">
           <TextProfile />
           <div className="profile-btn-container">
-            <button className="futuristic-btn">
+            <a
+              href="/cv/Curriculum%20Vitae_Muh.%20Ditra%20Pamungkas_Informatika.pdf"
+              download="CV_Muh_Ditra_Pamungkas.pdf"
+              className="futuristic-btn"
+              aria-label="Unduh CV dalam format PDF"
+            >
               <span className="moving-stripes">
                 <span className="stripe"></span>
                 <span className="stripe"></span>
                 <span className="stripe"></span>
               </span>
-              <span className="futuristic-btn-text">Download CV</span>
-            </button>
+              <span className="futuristic-btn-text">Unduh CV</span>
+            </a>
           </div>
         </div>
       </div>
