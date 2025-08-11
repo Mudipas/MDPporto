@@ -1,0 +1,51 @@
+{
+  "profile": {
+    "name": "Muh. Ditra Pamungkas",
+    "greetings": [
+      "Halo!",
+      "Saya Muh. Ditra Pamungkas",
+      "Saya seorang Programmer",
+      "Saya seorang Developer"
+    ],
+    "summary": "Sebagai developer, saya berfokus pada pengembangan aplikasi web yang modern, aman, dan skalabel. Saya menguasai framework backend seperti Yii, CodeIgniter, dan Laravel, serta memiliki keahlian kuat pada Node.js dan C# untuk pengembangan API yang efisien. Di sisi frontend, saya terbiasa menggunakan React.js untuk menghadirkan pengalaman pengguna yang dinamis. Saya konsisten menerapkan praktik terbaik keamanan siber pada setiap proyek agar solusi yang dibangun tidak hanya fungsional, tetapi juga tangguh terhadap ancaman. Saya antusias berkolaborasi pada proyek inovatif yang membutuhkan kemampuan full‑stack dengan penekanan pada kualitas dan keamanan.",
+    "stats": {
+      "yearsExperience": "3+",
+      "projectsCompleted": "50+",
+      "clientSatisfaction": "100%"
+    }
+  },
+  "education": [
+    { "institution": "Universitas Islam Indonesia", "degree": "Magister Informatika", "graduation": "2023" },
+    { "institution": "STMIK Sinar Nusantara Surakarta", "degree": "Sarjana Teknik Informatika", "graduation": "2019" },
+    { "institution": "SMA Batik 2 Surakarta", "degree": "Jurusan IPA", "graduation": "2015" }
+  ],
+  "experience": [
+    "Freelance Web Programming (2022 – Sekarang): Desain web dan coding dengan HTML, CSS, dan JavaScript.",
+    "Online Course Microsoft IV – Virtual Education Microsoft IV (2022).",
+    "C|HFI V9 & C|EH V11 – Sertifikasi EC‑Council, 2021–2022.",
+    "Penataran TI Grup 2 Kopassus Triwulan IV (2021): Mengajar dasar forensik."
+  ],
+  "skills": {
+    "technical": [
+      "Desain Web",
+      "Design Thinking",
+      "Pemrograman Frontend",
+      "Teknologi Backend",
+      "Pemecahan Masalah",
+      "Alat Manajemen Proyek"
+    ],
+    "languages": ["Indonesia", "Inggris"]
+  },
+  "portfolio": [
+    { "title": "Situs Pribadi", "desc": "Website portofolio dibuat dengan React, CSS, dan desain modern." },
+    { "title": "Antarmuka E‑Commerce", "desc": "Mockup frontend e‑commerce dengan layout responsif." },
+    { "title": "Halaman Arahan", "desc": "Landing page peluncuran produk dengan smooth scroll dan animasi." }
+  ],
+  "contact": {
+    "email": "ditra.pamungkas12@gmail.com",
+    "phone": "+62 857-0011-4842",
+    "address": "Jl. Arjuna Kauman, Krajan, Gatak, Sukoharjo, 57557",
+    "instagram": "@Mykonco",
+    "linkedin": "Muh. Ditra Pamungkas"
+  }
+}

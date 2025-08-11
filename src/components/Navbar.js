@@ -13,12 +13,12 @@ const scrollToSection = (e, id) => {
 };
 
 const navItems = [
-  { id: 'profile', label: 'Profile' },
-  { id: 'education', label: 'Education' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'blog', label: 'Blog' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'profile', label: 'Profil' },
+  { id: 'education', label: 'Pendidikan' },
+  { id: 'experience', label: 'Pengalaman' },
+  { id: 'portfolio', label: 'Portofolio' },
+  // Blog disembunyikan sesuai permintaan
+  { id: 'contact', label: 'Kontak' },
 ];
 
 const Navbar = ({ setActiveSection }) => {
@@ -51,7 +51,7 @@ const Navbar = ({ setActiveSection }) => {
       </ul>
       <GearButton
         onClick={toggleTheme}
-        ariaLabel="Toggle dark/light mode"
+        ariaLabel="Ubah tema gelap/terang"
         icon={theme === 'dark' ? '☀️' : '🌙'}
       />
     </nav>

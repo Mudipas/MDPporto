@@ -1,0 +1,17 @@
+/* Georama Variable Font - Local Install */
+@font-face {
+  font-family: 'Georama';
+  src: url('../fonts/Georama-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Georama';
+  src: url('../fonts/Georama-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: italic;
+  font-display: swap;
+}
