@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TextTransition from './TextTransition';
 import '../../styles/TextProfile.css';
 
 const TextProfile = () => {
-  const greetings = [
-    "Hello!",
-    "I'm Muh. Ditra Pamungkas",
-    "I Am a Programmer",
-    "I Am a Developer"
+  const [content, setContent] = useState(null);
+  const greetingsFallback = [
+    "Halo!",
+    "Saya Muh. Ditra Pamungkas",
+    "Saya seorang Programmer",
+    "Saya seorang Developer"
   ];
+
+  useEffect(() => {
+    // Lazy load JSON content
+    import('../../data/content.json')
+      .then((mod) => setContent(mod))
+      .catch(() => setContent(null));
+  }, []);
 
   return (
     <div className="text-profile">
       <div className="profile-header">
         <h1 className="profile-greeting">
           <TextTransition 
-            texts={greetings} 
+            texts={(content && content.profile && content.profile.greetings) || greetingsFallback} 
             typingSpeed={80}
             pauseDuration={1000}
             className="greeting-transition"
@@ -24,21 +32,21 @@ const TextProfile = () => {
       </div>
       
       <div className="profile-description">
-        <p>As a developer, I specialize in building modern, secure, and scalable web applications. I am proficient in backend frameworks such as Yii, CodeIgniter, and Laravel, and possess strong expertise in Node.js and C# for efficient API development. On the frontend, I am adept at using React.js to create dynamic user experiences. I consistently implement cybersecurity best practices in every project, ensuring that the solutions I develop are not only functional but also resilient against threats. I am enthusiastic about collaborating on innovative projects that demand full-stack expertise with a focus on quality and security.</p>
+        <p>{(content && content.profile && content.profile.summary) || 'Profil singkat belum tersedia.'}</p>
       </div>
       
       <div className="profile-stats">
         <div className="stat-item">
-          <span className="stat-number">3+</span>
-          <span className="stat-label">Years of Experience</span>
+          <span className="stat-number">{(content && content.profile && content.profile.stats && content.profile.stats.yearsExperience) || '3+'}</span>
+          <span className="stat-label">Tahun Pengalaman</span>
         </div>
         <div className="stat-item">
-          <span className="stat-number">50+</span>
-          <span className="stat-label">Projects Completed</span>
+          <span className="stat-number">{(content && content.profile && content.profile.stats && content.profile.stats.projectsCompleted) || '50+'}</span>
+          <span className="stat-label">Proyek Selesai</span>
         </div>
         <div className="stat-item">
-          <span className="stat-number">100%</span>
-          <span className="stat-label">Client Satisfaction</span>
+          <span className="stat-number">{(content && content.profile && content.profile.stats && content.profile.stats.clientSatisfaction) || '100%'}</span>
+          <span className="stat-label">Kepuasan Klien</span>
         </div>
       </div>
     </div>

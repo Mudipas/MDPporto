@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import '../styles/App.css';
 
@@ -20,19 +20,26 @@ const icons = {
   ),
 };
 
-const ContactSection = ({ isActive }) => (
-  <section id="contact" style={{ scrollMarginTop: '90px' }}>
-    <Card className={isActive ? 'profile-active-border' : ''}>
-      <h2>Kontak</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        <li>{icons.email}<b>Email:</b> ditra.pamungkas12@gmail.com</li>
-        <li>{icons.phone}<b>Telepon:</b> +62 857-0011-4842</li>
-        <li>{icons.address}<b>Alamat:</b> Jl. Arjuna Kauman, Krajan, Gatak, Sukoharjo, 57557</li>
-        <li>{icons.instagram}<b>Instagram:</b> @Mykonco</li>
-        <li>{icons.linkedin}<b>LinkedIn:</b> Muh. Ditra Pamungkas</li>
-      </ul>
-    </Card>
-  </section>
-);
+const ContactSection = ({ isActive }) => {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    import('../data/content.json').then(setContent).catch(() => setContent(null));
+  }, []);
+  const c = (content && content.contact) || {};
+  return (
+    <section id="contact" style={{ scrollMarginTop: '90px' }}>
+      <Card className={isActive ? 'profile-active-border' : ''}>
+        <h2>Kontak</h2>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li>{icons.email}<b>Email:</b> {c.email || '-'}</li>
+          <li>{icons.phone}<b>Telepon:</b> {c.phone || '-'}</li>
+          <li>{icons.address}<b>Alamat:</b> {c.address || '-'}</li>
+          <li>{icons.instagram}<b>Instagram:</b> {c.instagram || '-'}</li>
+          <li>{icons.linkedin}<b>LinkedIn:</b> {c.linkedin || '-'}</li>
+        </ul>
+      </Card>
+    </section>
+  );
+};
 
 export default ContactSection;
